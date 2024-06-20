@@ -39,7 +39,9 @@ class Graph {
                     lastStep = backtrace[lastStep];
                 }
                 path.unshift(start);
-                console.log(`Shortest path from ${start} to ${end}: ${path.join(" -> ")}, requires ${distances[end]} train cards.`);
+                // console.log(`Shortest path from ${start} to ${end}: ${path.join(" -> ")}, requires ${distances[end]} train cards.`);
+                console.log(`${start} to ${end} is ${distances[end]} point.`);
+                alert(`${start} to ${end} is ${distances[end]} point.`);
                 return;
             }
 
@@ -86,16 +88,90 @@ class PriorityQueue {
 
 // Example Usage
 let graph = new Graph();
-let cities = ['A', 'B', 'C', 'D', 'E', 'F'];
+// let cities = ['A', 'B', 'C', 'D', 'E', 'F'];
+let cities = ['Vancouver', 'Seattle', 'Calgary', 'Helena', 'Portland', 'Salt Lake City', 'San Francisco', 'Los Angeles', 'Las Vegas', 'Phoenix', 'El Paso', 'Winnipeg', 'Duluth', 'Omaha', 'Denver', 'Santa Fe', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',];
 
 cities.forEach(city => graph.addVertex(city));
 
-graph.addEdge('A', 'B', 4);
-graph.addEdge('A', 'C', 3);
-graph.addEdge('B', 'C', 1);
-graph.addEdge('B', 'D', 2);
-graph.addEdge('C', 'D', 4);
-graph.addEdge('D', 'E', 2);
-graph.addEdge('E', 'F', 6);
+graph.addEdge('Vancouver', 'Seattle', 1);
+graph.addEdge('Vancouver', 'Calgary', 3);
+graph.addEdge("Seattle", "Calgary", 4);
+graph.addEdge("Seattle", "Helena", 6);
+graph.addEdge("Seattle", "Portland", 1);
+graph.addEdge("Portland", "Salt Lake City", 6);
+graph.addEdge("Portland", "San Francisco", 5);
+graph.addEdge("San Francisco", "Salt Lake City", 5);
+graph.addEdge("San Francisco", "Los Angeles", 3);
+graph.addEdge("Los Angeles", "Las Vegas", 2);
+graph.addEdge("Los Angeles", "Phoenix", 3);
+graph.addEdge("Los Angeles", "El Paso", 6);
+graph.addEdge("Calgary", "Winnipeg", 6);
+graph.addEdge("Calgary", "Helena", 4);
+graph.addEdge("Helena"), "Winnipeg", 4);
+graph.addEdge("Helena", "Duluth", 6);
+graph.addEdge("Helena", "Salt Lake City", 3);
+graph.addEdge("Helena", "Omaha", 5);
+graph.addEdge("Helena"), "Denver", 4);
+graph.addEdge("Salt Lake City", "Denver", 3);
+graph.addEdge("Salt Lake City", "Las Vegas", 3);
+graph.addEdge("Phoenix", "Denver", 5);
+graph.addEdge("Phoenix", "Santa Fe", 3);
+graph.addEdge(cityNames.getCityNumberFromName("Phoenix"), cityNames.getCityNumberFromName("El Paso"), 3);
+graph.addEdge(cityNames.getCityNumberFromName("Winnipeg"), cityNames.getCityNumberFromName("Sault St.Marie"), 6);
+graph.addEdge(cityNames.getCityNumberFromName("Winnipeg"), cityNames.getCityNumberFromName("Duluth"), 4);
+graph.addEdge(cityNames.getCityNumberFromName("Duluth"), cityNames.getCityNumberFromName("Sault St.Marie"), 3);
+graph.addEdge(cityNames.getCityNumberFromName("Duluth"), cityNames.getCityNumberFromName("Toronto"), 6);
+graph.addEdge(cityNames.getCityNumberFromName("Duluth"), cityNames.getCityNumberFromName("Chicago"), 3);
+graph.addEdge(cityNames.getCityNumberFromName("Duluth"), cityNames.getCityNumberFromName("Omaha"), 2);
+graph.addEdge(cityNames.getCityNumberFromName("Omaha"), cityNames.getCityNumberFromName("Chicago"), 4);
+graph.addEdge(cityNames.getCityNumberFromName("Omaha"), cityNames.getCityNumberFromName("Kansas City"), 1);
+graph.addEdge(cityNames.getCityNumberFromName("Omaha"), cityNames.getCityNumberFromName("Denver"), 4);
+graph.addEdge(cityNames.getCityNumberFromName("Sault St.Marie"), cityNames.getCityNumberFromName("Montreal"), 5);
+graph.addEdge(cityNames.getCityNumberFromName("Sault St.Marie"), cityNames.getCityNumberFromName("Toronto"), 2);
+graph.addEdge(cityNames.getCityNumberFromName("Chicago"), cityNames.getCityNumberFromName("Toronto"), 4);
+graph.addEdge(cityNames.getCityNumberFromName("Chicago"), cityNames.getCityNumberFromName("Pittsburch"), 3);
+graph.addEdge(cityNames.getCityNumberFromName("Chicago"), cityNames.getCityNumberFromName("Saint Louis"), 2);
+graph.addEdge(cityNames.getCityNumberFromName("Montreal"), cityNames.getCityNumberFromName("Boston"), 2);
+graph.addEdge(cityNames.getCityNumberFromName("Montreal"), cityNames.getCityNumberFromName("New York"), 3);
+graph.addEdge(cityNames.getCityNumberFromName("Montreal"), cityNames.getCityNumberFromName("Toronto"), 3);
+graph.addEdge(cityNames.getCityNumberFromName("Toronto"), cityNames.getCityNumberFromName("Pittsburgh"), 2);
+graph.addEdge(cityNames.getCityNumberFromName("Boston"), cityNames.getCityNumberFromName("New York"), 2);
+graph.addEdge(cityNames.getCityNumberFromName("Pittsburgh"), cityNames.getCityNumberFromName("New York"), 2);
+graph.addEdge(cityNames.getCityNumberFromName("Pittsburgh"), cityNames.getCityNumberFromName("Washington"), 2);
+graph.addEdge(cityNames.getCityNumberFromName("Pittsburgh"), cityNames.getCityNumberFromName("Raleigh"), 2);
+graph.addEdge(cityNames.getCityNumberFromName("Pittsburgh"), cityNames.getCityNumberFromName("Nashville"), 4);
+graph.addEdge(cityNames.getCityNumberFromName("Pittsburgh"), cityNames.getCityNumberFromName("Saint Louis"), 5);
+graph.addEdge(cityNames.getCityNumberFromName("New York"), cityNames.getCityNumberFromName("Washington"), 2);
+graph.addEdge(cityNames.getCityNumberFromName("Washington"), cityNames.getCityNumberFromName("Raleigh"), 2);
+graph.addEdge(cityNames.getCityNumberFromName("Denver"), cityNames.getCityNumberFromName("Kansas City"), 4);
+graph.addEdge(cityNames.getCityNumberFromName("Denver"), cityNames.getCityNumberFromName("Oklahoma City"), 4);
+graph.addEdge(cityNames.getCityNumberFromName("Denver"), cityNames.getCityNumberFromName("Santa Fe"), 2);
+graph.addEdge(cityNames.getCityNumberFromName("Santa Fe"), cityNames.getCityNumberFromName("Oklahoma City"), 3);
+graph.addEdge(cityNames.getCityNumberFromName("Santa Fe"), cityNames.getCityNumberFromName("El Paso"), 2);
+graph.addEdge(cityNames.getCityNumberFromName("El Paso"), cityNames.getCityNumberFromName("Oklahoma City"), 5);
+graph.addEdge(cityNames.getCityNumberFromName("El Paso"), cityNames.getCityNumberFromName("Dallas"), 4);
+graph.addEdge(cityNames.getCityNumberFromName("El Paso"), cityNames.getCityNumberFromName("Houston"), 6);
+graph.addEdge(cityNames.getCityNumberFromName("Oklahoma City"), cityNames.getCityNumberFromName("Kansas City"), 2);
+graph.addEdge(cityNames.getCityNumberFromName("Oklahoma City"), cityNames.getCityNumberFromName("Little Rock"), 2);
+graph.addEdge(cityNames.getCityNumberFromName("Oklahoma City"), cityNames.getCityNumberFromName("Dallas"), 2);
+graph.addEdge(cityNames.getCityNumberFromName("Kansas City"), cityNames.getCityNumberFromName("Saint Louis"), 2);
+graph.addEdge(cityNames.getCityNumberFromName("Dallas"), cityNames.getCityNumberFromName("Little Rock"), 2);
+graph.addEdge(cityNames.getCityNumberFromName("Dallas"), cityNames.getCityNumberFromName("Houston"), 1);
+graph.addEdge(cityNames.getCityNumberFromName("Saint Louis"), cityNames.getCityNumberFromName("Nashville"), 2);
+graph.addEdge(cityNames.getCityNumberFromName("Saint Louis"), cityNames.getCityNumberFromName("Little Rock"), 2);
+graph.addEdge(cityNames.getCityNumberFromName("Little Rock"), cityNames.getCityNumberFromName("Nashville"), 3);
+graph.addEdge(cityNames.getCityNumberFromName("Little Rock"), cityNames.getCityNumberFromName("New Orleans"), 3);
+graph.addEdge(cityNames.getCityNumberFromName("Houston"), cityNames.getCityNumberFromName("New Orleans"), 2);
+graph.addEdge(cityNames.getCityNumberFromName("New Orleans"), cityNames.getCityNumberFromName("Atlanta"), 4);
+graph.addEdge(cityNames.getCityNumberFromName("New Orleans"), cityNames.getCityNumberFromName("Miami"), 6);
+graph.addEdge(cityNames.getCityNumberFromName("Nashville"), cityNames.getCityNumberFromName("Raleigh"), 3);
+graph.addEdge(cityNames.getCityNumberFromName("Nashville"), cityNames.getCityNumberFromName("Atlanta"), 1);
+graph.addEdge(cityNames.getCityNumberFromName("Raleigh"), cityNames.getCityNumberFromName("Charleston"), 2);
+graph.addEdge(cityNames.getCityNumberFromName("Raleigh"), cityNames.getCityNumberFromName("Atlanta"), 2);
+graph.addEdge(cityNames.getCityNumberFromName("Atlanta"), cityNames.getCityNumberFromName("Charleston"), 2);
+graph.addEdge(cityNames.getCityNumberFromName("Atlanta"), cityNames.getCityNumberFromName("Miami"), 5);
+graph.addEdge(cityNames.getCityNumberFromName("Charleston"), cityNames.getCityNumberFromName("Miami"), 4);
 
-graph.findShortestPath('A', 'F'); // Find the shortest path from 'A' to 'F'
+
+graph.findShortestPath('Vancouver', 'Helena'); // Find the shortest path from 'A' to 'F'
+
