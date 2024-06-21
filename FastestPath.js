@@ -1,3 +1,5 @@
+"use strict";
+
 class Graph {
     constructor(vertices) {
         this.vertices = vertices;
@@ -41,7 +43,7 @@ class Graph {
                 path.unshift(start);
                 // console.log(`Shortest path from ${start} to ${end}: ${path.join(" -> ")}, requires ${distances[end]} train cards.`);
                 console.log(`${start} to ${end} is ${distances[end]} point.`);
-                alert(`${start} to ${end} is ${distances[end]} point.`);
+                // alert(`${start} to ${end} is ${distances[end]} point.`);
                 return;
             }
 
@@ -56,6 +58,7 @@ class Graph {
         }
     }
 }
+
 
 class PriorityQueue {
     constructor() {
@@ -86,10 +89,100 @@ class PriorityQueue {
     }
 }
 
+function getCity() {
+    let graph = new Graph();
+    let cities = ['Vancouver', 'Seattle', 'Calgary', 'Helena', 'Portland', 'Salt Lake City', 'San Francisco', 'Los Angeles', 'Las Vegas', 'Phoenix', 'El Paso', 'Winnipeg', 'Duluth', 'Omaha', 'Denver', 'Santa Fe', 'Sault St.Marie', 'Toronto', 'Chicago', 'Kansas City', 'Montreal', 'Pittsburgh', 'Saint Louis', 'Boston', 'New York', 'Washington', 'Raleigh', 'Nashville', 'Oklahoma City', 'Dallas', 'Houston', 'Little Rock', 'New Orleans', 'Atlanta', 'Miami', 'Charleston'];
+
+    cities.forEach(city => graph.addVertex(city));
+
+    graph.addEdge('Vancouver', 'Seattle', 1);
+    graph.addEdge('Vancouver', 'Calgary', 3);
+    graph.addEdge("Seattle", "Calgary", 4);
+    graph.addEdge("Seattle", "Helena", 6);
+    graph.addEdge("Seattle", "Portland", 1);
+    graph.addEdge("Portland", "Salt Lake City", 6);
+    graph.addEdge("Portland", "San Francisco", 5);
+    graph.addEdge("San Francisco", "Salt Lake City", 5);
+    graph.addEdge("San Francisco", "Los Angeles", 3);
+    graph.addEdge("Los Angeles", "Las Vegas", 2);
+    graph.addEdge("Los Angeles", "Phoenix", 3);
+    graph.addEdge("Los Angeles", "El Paso", 6);
+    graph.addEdge("Calgary", "Winnipeg", 6);
+    graph.addEdge("Calgary", "Helena", 4);
+    graph.addEdge("Helena", "Winnipeg", 4);
+    graph.addEdge("Helena", "Duluth", 6);
+    graph.addEdge("Helena", "Salt Lake City", 3);
+    graph.addEdge("Helena", "Omaha", 5);
+    graph.addEdge("Helena", "Denver", 4);
+    graph.addEdge("Salt Lake City", "Denver", 3);
+    graph.addEdge("Salt Lake City", "Las Vegas", 3);
+    graph.addEdge("Phoenix", "Denver", 5);
+    graph.addEdge("Phoenix", "Santa Fe", 3);
+    graph.addEdge("Phoenix", "El Paso", 3);
+    graph.addEdge("Winnipeg", "Sault St.Marie", 6);
+    graph.addEdge("Winnipeg", "Duluth", 4);
+    graph.addEdge("Duluth", "Sault St.Marie", 3);
+    graph.addEdge("Duluth", "Toronto", 6);
+    graph.addEdge("Duluth", "Chicago", 3);
+    graph.addEdge("Duluth", "Omaha", 2);
+    graph.addEdge("Omaha", "Chicago", 4);
+    graph.addEdge("Omaha", "Kansas City", 1);
+    graph.addEdge("Omaha", "Denver", 4);
+    graph.addEdge("Sault St.Marie", "Montreal", 5);
+    graph.addEdge("Sault St.Marie", "Toronto", 2);
+    graph.addEdge("Chicago", "Toronto", 4);
+    graph.addEdge("Chicago", "Pittsburgh", 3);
+    graph.addEdge("Chicago", "Saint Louis", 2);
+    graph.addEdge("Montreal", "Boston", 2);
+    graph.addEdge("Montreal", "New York", 3);
+    graph.addEdge("Montreal", "Toronto", 3);
+    graph.addEdge("Toronto", "Pittsburgh", 2);
+    graph.addEdge("Boston", "New York", 2);
+    graph.addEdge("Pittsburgh", "New York", 2);
+    graph.addEdge("Pittsburgh", "Washington", 2);
+    graph.addEdge("Pittsburgh", "Raleigh", 2);
+    graph.addEdge("Pittsburgh", "Nashville", 4);
+    graph.addEdge("Pittsburgh", "Saint Louis", 5);
+    graph.addEdge("New York", "Washington", 2);
+    graph.addEdge("Washington", "Raleigh", 2);
+    graph.addEdge("Denver", "Kansas City", 4);
+    graph.addEdge("Denver", "Oklahoma City", 4);
+    graph.addEdge("Denver", "Santa Fe", 2);
+    graph.addEdge("Santa Fe", "Oklahoma City", 3);
+    graph.addEdge("Santa Fe", "El Paso", 2);
+    graph.addEdge("El Paso", "Oklahoma City", 5);
+    graph.addEdge("El Paso", "Dallas", 4);
+    graph.addEdge("El Paso", "Houston", 6);
+    graph.addEdge("Oklahoma City", "Kansas City", 2);
+    graph.addEdge("Oklahoma City", "Little Rock", 2);
+    graph.addEdge("Oklahoma City", "Dallas", 2);
+    graph.addEdge("Kansas City", "Saint Louis", 2);
+    graph.addEdge("Dallas", "Little Rock", 2);
+    graph.addEdge("Dallas", "Houston", 1);
+    graph.addEdge("Saint Louis", "Nashville", 2);
+    graph.addEdge("Saint Louis", "Little Rock", 2);
+    graph.addEdge("Little Rock", "Nashville", 3);
+    graph.addEdge("Little Rock", "New Orleans", 3);
+    graph.addEdge("Houston", "New Orleans", 2);
+    graph.addEdge("New Orleans", "Atlanta", 4);
+    graph.addEdge("New Orleans", "Miami", 6);
+    graph.addEdge("Nashville", "Raleigh", 3);
+    graph.addEdge("Nashville", "Atlanta", 1);
+    graph.addEdge("Raleigh", "Charleston", 2);
+    graph.addEdge("Raleigh", "Atlanta", 2);
+    graph.addEdge("Atlanta", "Charleston", 2);
+    graph.addEdge("Atlanta", "Miami", 5);
+    graph.addEdge("Charleston", "Miami", 4);
+
+    let cities2 = ['Vancouver', 'Seattle', 'Calgary'];
+
+    // return cities[parseInt(Math.random() * cities.length)]
+    return cities[parseInt(Math.random() * cities2.length)]
+}
+
 // Example Usage
 let graph = new Graph();
-// let cities = ['A', 'B', 'C', 'D', 'E', 'F'];
-let cities = ['Vancouver', 'Seattle', 'Calgary', 'Helena', 'Portland', 'Salt Lake City', 'San Francisco', 'Los Angeles', 'Las Vegas', 'Phoenix', 'El Paso', 'Winnipeg', 'Duluth', 'Omaha', 'Denver', 'Santa Fe', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',];
+// let cities = ['Vancouver', 'Seattle', 'Calgary', 'Helena'];
 
 cities.forEach(city => graph.addVertex(city));
 
@@ -97,81 +190,36 @@ graph.addEdge('Vancouver', 'Seattle', 1);
 graph.addEdge('Vancouver', 'Calgary', 3);
 graph.addEdge("Seattle", "Calgary", 4);
 graph.addEdge("Seattle", "Helena", 6);
-graph.addEdge("Seattle", "Portland", 1);
-graph.addEdge("Portland", "Salt Lake City", 6);
-graph.addEdge("Portland", "San Francisco", 5);
-graph.addEdge("San Francisco", "Salt Lake City", 5);
-graph.addEdge("San Francisco", "Los Angeles", 3);
-graph.addEdge("Los Angeles", "Las Vegas", 2);
-graph.addEdge("Los Angeles", "Phoenix", 3);
-graph.addEdge("Los Angeles", "El Paso", 6);
-graph.addEdge("Calgary", "Winnipeg", 6);
-graph.addEdge("Calgary", "Helena", 4);
-graph.addEdge("Helena"), "Winnipeg", 4);
-graph.addEdge("Helena", "Duluth", 6);
-graph.addEdge("Helena", "Salt Lake City", 3);
-graph.addEdge("Helena", "Omaha", 5);
-graph.addEdge("Helena"), "Denver", 4);
-graph.addEdge("Salt Lake City", "Denver", 3);
-graph.addEdge("Salt Lake City", "Las Vegas", 3);
-graph.addEdge("Phoenix", "Denver", 5);
-graph.addEdge("Phoenix", "Santa Fe", 3);
-graph.addEdge(cityNames.getCityNumberFromName("Phoenix"), cityNames.getCityNumberFromName("El Paso"), 3);
-graph.addEdge(cityNames.getCityNumberFromName("Winnipeg"), cityNames.getCityNumberFromName("Sault St.Marie"), 6);
-graph.addEdge(cityNames.getCityNumberFromName("Winnipeg"), cityNames.getCityNumberFromName("Duluth"), 4);
-graph.addEdge(cityNames.getCityNumberFromName("Duluth"), cityNames.getCityNumberFromName("Sault St.Marie"), 3);
-graph.addEdge(cityNames.getCityNumberFromName("Duluth"), cityNames.getCityNumberFromName("Toronto"), 6);
-graph.addEdge(cityNames.getCityNumberFromName("Duluth"), cityNames.getCityNumberFromName("Chicago"), 3);
-graph.addEdge(cityNames.getCityNumberFromName("Duluth"), cityNames.getCityNumberFromName("Omaha"), 2);
-graph.addEdge(cityNames.getCityNumberFromName("Omaha"), cityNames.getCityNumberFromName("Chicago"), 4);
-graph.addEdge(cityNames.getCityNumberFromName("Omaha"), cityNames.getCityNumberFromName("Kansas City"), 1);
-graph.addEdge(cityNames.getCityNumberFromName("Omaha"), cityNames.getCityNumberFromName("Denver"), 4);
-graph.addEdge(cityNames.getCityNumberFromName("Sault St.Marie"), cityNames.getCityNumberFromName("Montreal"), 5);
-graph.addEdge(cityNames.getCityNumberFromName("Sault St.Marie"), cityNames.getCityNumberFromName("Toronto"), 2);
-graph.addEdge(cityNames.getCityNumberFromName("Chicago"), cityNames.getCityNumberFromName("Toronto"), 4);
-graph.addEdge(cityNames.getCityNumberFromName("Chicago"), cityNames.getCityNumberFromName("Pittsburch"), 3);
-graph.addEdge(cityNames.getCityNumberFromName("Chicago"), cityNames.getCityNumberFromName("Saint Louis"), 2);
-graph.addEdge(cityNames.getCityNumberFromName("Montreal"), cityNames.getCityNumberFromName("Boston"), 2);
-graph.addEdge(cityNames.getCityNumberFromName("Montreal"), cityNames.getCityNumberFromName("New York"), 3);
-graph.addEdge(cityNames.getCityNumberFromName("Montreal"), cityNames.getCityNumberFromName("Toronto"), 3);
-graph.addEdge(cityNames.getCityNumberFromName("Toronto"), cityNames.getCityNumberFromName("Pittsburgh"), 2);
-graph.addEdge(cityNames.getCityNumberFromName("Boston"), cityNames.getCityNumberFromName("New York"), 2);
-graph.addEdge(cityNames.getCityNumberFromName("Pittsburgh"), cityNames.getCityNumberFromName("New York"), 2);
-graph.addEdge(cityNames.getCityNumberFromName("Pittsburgh"), cityNames.getCityNumberFromName("Washington"), 2);
-graph.addEdge(cityNames.getCityNumberFromName("Pittsburgh"), cityNames.getCityNumberFromName("Raleigh"), 2);
-graph.addEdge(cityNames.getCityNumberFromName("Pittsburgh"), cityNames.getCityNumberFromName("Nashville"), 4);
-graph.addEdge(cityNames.getCityNumberFromName("Pittsburgh"), cityNames.getCityNumberFromName("Saint Louis"), 5);
-graph.addEdge(cityNames.getCityNumberFromName("New York"), cityNames.getCityNumberFromName("Washington"), 2);
-graph.addEdge(cityNames.getCityNumberFromName("Washington"), cityNames.getCityNumberFromName("Raleigh"), 2);
-graph.addEdge(cityNames.getCityNumberFromName("Denver"), cityNames.getCityNumberFromName("Kansas City"), 4);
-graph.addEdge(cityNames.getCityNumberFromName("Denver"), cityNames.getCityNumberFromName("Oklahoma City"), 4);
-graph.addEdge(cityNames.getCityNumberFromName("Denver"), cityNames.getCityNumberFromName("Santa Fe"), 2);
-graph.addEdge(cityNames.getCityNumberFromName("Santa Fe"), cityNames.getCityNumberFromName("Oklahoma City"), 3);
-graph.addEdge(cityNames.getCityNumberFromName("Santa Fe"), cityNames.getCityNumberFromName("El Paso"), 2);
-graph.addEdge(cityNames.getCityNumberFromName("El Paso"), cityNames.getCityNumberFromName("Oklahoma City"), 5);
-graph.addEdge(cityNames.getCityNumberFromName("El Paso"), cityNames.getCityNumberFromName("Dallas"), 4);
-graph.addEdge(cityNames.getCityNumberFromName("El Paso"), cityNames.getCityNumberFromName("Houston"), 6);
-graph.addEdge(cityNames.getCityNumberFromName("Oklahoma City"), cityNames.getCityNumberFromName("Kansas City"), 2);
-graph.addEdge(cityNames.getCityNumberFromName("Oklahoma City"), cityNames.getCityNumberFromName("Little Rock"), 2);
-graph.addEdge(cityNames.getCityNumberFromName("Oklahoma City"), cityNames.getCityNumberFromName("Dallas"), 2);
-graph.addEdge(cityNames.getCityNumberFromName("Kansas City"), cityNames.getCityNumberFromName("Saint Louis"), 2);
-graph.addEdge(cityNames.getCityNumberFromName("Dallas"), cityNames.getCityNumberFromName("Little Rock"), 2);
-graph.addEdge(cityNames.getCityNumberFromName("Dallas"), cityNames.getCityNumberFromName("Houston"), 1);
-graph.addEdge(cityNames.getCityNumberFromName("Saint Louis"), cityNames.getCityNumberFromName("Nashville"), 2);
-graph.addEdge(cityNames.getCityNumberFromName("Saint Louis"), cityNames.getCityNumberFromName("Little Rock"), 2);
-graph.addEdge(cityNames.getCityNumberFromName("Little Rock"), cityNames.getCityNumberFromName("Nashville"), 3);
-graph.addEdge(cityNames.getCityNumberFromName("Little Rock"), cityNames.getCityNumberFromName("New Orleans"), 3);
-graph.addEdge(cityNames.getCityNumberFromName("Houston"), cityNames.getCityNumberFromName("New Orleans"), 2);
-graph.addEdge(cityNames.getCityNumberFromName("New Orleans"), cityNames.getCityNumberFromName("Atlanta"), 4);
-graph.addEdge(cityNames.getCityNumberFromName("New Orleans"), cityNames.getCityNumberFromName("Miami"), 6);
-graph.addEdge(cityNames.getCityNumberFromName("Nashville"), cityNames.getCityNumberFromName("Raleigh"), 3);
-graph.addEdge(cityNames.getCityNumberFromName("Nashville"), cityNames.getCityNumberFromName("Atlanta"), 1);
-graph.addEdge(cityNames.getCityNumberFromName("Raleigh"), cityNames.getCityNumberFromName("Charleston"), 2);
-graph.addEdge(cityNames.getCityNumberFromName("Raleigh"), cityNames.getCityNumberFromName("Atlanta"), 2);
-graph.addEdge(cityNames.getCityNumberFromName("Atlanta"), cityNames.getCityNumberFromName("Charleston"), 2);
-graph.addEdge(cityNames.getCityNumberFromName("Atlanta"), cityNames.getCityNumberFromName("Miami"), 5);
-graph.addEdge(cityNames.getCityNumberFromName("Charleston"), cityNames.getCityNumberFromName("Miami"), 4);
+
+// function getRandomCity() {
+//     return cities[parseInt(Math.random() * cities2.length)]
+// }
+
+// let city1 = getCity();
+// let city2 = getCity();
+
+// while (city1 == city2) {
+//     city2 = getCity();
+// };
 
 
-graph.findShortestPath('Vancouver', 'Helena'); // Find the shortest path from 'A' to 'F'
+// document.getElementById("fiveCities").addEventListener("click", () => threeCities(city1, city2));
+document.getElementById("threeCities").addEventListener("click", () => threeCities());
 
+
+function threeCities() {
+    let city1;
+    let city2;
+
+    for (let i = 0; i < 3; i++) {
+        city1 = getCity();
+        city2 = getCity();
+
+        while (city1 == city2) {
+            city2 = getCity();
+        };
+
+        graph.findShortestPath(city1, city2);
+    }
+
+}
