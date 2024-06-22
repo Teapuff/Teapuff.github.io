@@ -185,7 +185,7 @@ document.getElementById("fiveCities").addEventListener("click", () => {
         city2 = cities[parseInt(Math.random() * cities.length)];
 
         while (city1 == city2) {
-            city2 = getCity();
+            city2 = cities[parseInt(Math.random() * cities.length)];
         };
 
         allPath += i + 1 + ": " + graph.findShortestPath(city1, city2) + "\n";
