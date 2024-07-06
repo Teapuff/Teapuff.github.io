@@ -41,6 +41,23 @@ vitruvius = document.getElementById("vitruvius");
 xenophon = document.getElementById("xenophon");
 zenobia = document.getElementById("zenobia");
 
+aganice = document.getElementById("aganice");
+agrippina = document.getElementById("agrippina");
+arsinoe = document.getElementById("arsinoe");
+cornelia = document.getElementById("cornelia");
+cynisca = document.getElementById("cynisca");
+enheduanna = document.getElementById("enheduanna");
+eurypyle = document.getElementById("eurypyle");
+gorgo = document.getElementById("gorgo");
+makeda = document.getElementById("makeda");
+nitocris = document.getElementById("nitocris");
+octavia = document.getElementById("octavia");
+phryne = document.getElementById("phryne");
+roxana = document.getElementById("roxana");
+telesilla = document.getElementById("telesilla");
+theano = document.getElementById("theano");
+
+
 amytisText = "AMYTIS \nVid spelets slut är Amytil värd 2VP för varje underverksnivå byggd av spelaren.";
 alexanderText ="ALEXANDER \nVid spelets slut lägger Alexander till 1 VP på varje konfliktvinstmarkör (värdet på konfliktvinstmarkörerna går därför från 1, 3 och 5 VP till 2, 4, och 6VP).";
 archimedesText ="ARCHIMEDES \nSå fort Archimedes rekryteras tillåter de att spelaren betalar en resurs mindre än angiven kostnad för konstruerandet av byggnader i grön färg. \n\nFörtydligande: Vilken resurs som spelaren inte behöver betala väljer spelaren själv. Det kan vara en råvara (brun) eller ett tillverkande gods (grå).";
@@ -84,6 +101,23 @@ vitruviusText ="VITRUVIUS \nNär har rekryteras ger Vitruvius 2 mynt för varje 
 xenophonText ="XENOPHON \nNär han rekryteras ger Xenophon 2 mynt för varje kommersiell byggnad (gula kort) som spelaren bygger. Mynten tas från bankensamtidigt som byggnaden färdigställs.\n\nFörtydligande: Xenophon påverkar inte de kommersiella byggnader som byggts innan han rekryterades.";
 zenobiaText ="ZENOBIA \nVid spelets slut är Zenobia värd 3 VP.";
 
+aganiceText ="AGANICE \nVid spelets slut är Zenobia värd 3 VP.";
+agrippinaText ="AGRIPPINA \nVid spelets slut är Zenobia värd 3 VP.";
+arsinoeText ="ARSINOE \nVid spelets slut är Zenobia värd 3 VP.";
+corneliaText ="CORNELIA \nVid spelets slut är Zenobia värd 3 VP.";
+cyniscaText ="CYNISCA \nVid spelets slut är Zenobia värd 3 VP.";
+enheduannaText ="ENHEDUANNA \nVid spelets slut är Zenobia värd 3 VP.";
+eurypyleText ="EURYPLE \nVid spelets slut är Zenobia värd 3 VP.";
+gorgoText ="GORGO \nVid spelets slut är Zenobia värd 3 VP.";
+makedaText ="MAKEDA \nVid spelets slut är Zenobia värd 3 VP.";
+nitocrisText ="NITOCRIS \nVid spelets slut är Zenobia värd 3 VP.";
+octaviaText ="OCTAVIA \nVid spelets slut är Zenobia värd 3 VP.";
+phryneText ="PHRYNE \nVid spelets slut är Zenobia värd 3 VP.";
+roxanaText ="Roxana \nVid spelets slut är Zenobia värd 3 VP.";
+telesillaText ="TELESILLA \nVid spelets slut är Zenobia värd 3 VP.";
+theanoText ="THEANO \nVid spelets slut är Zenobia värd 3 VP.";
+
+
 amytis.addEventListener("click", function(){ alert(amytisText); });
 alexander.addEventListener("click", function(){ alert(alexanderText); });
 archimedes.addEventListener("click", function(){ alert(archimedesText); });
@@ -126,3 +160,19 @@ varro.addEventListener("click", function(){ alert(varroText); });
 vitruvius.addEventListener("click", function(){ alert(vitruviusText); });
 xenophon.addEventListener("click", function(){ alert(xenophonText); });
 zenobia.addEventListener("click", function(){ alert(zenobiaText); });
+
+aganice.addEventListener("click", function(){ alert(aganiceText); });
+agrippina.addEventListener("click", function(){ alert(agrippinaText); });
+arsinoe.addEventListener("click", function(){ alert(arsinoeText); });
+cornelia.addEventListener("click", function(){ alert(corneliaText); });
+cynisca.addEventListener("click", function(){ alert(cyniscaText); });
+enheduanna.addEventListener("click", function(){ alert(enheduannaText); });
+eurypyle.addEventListener("click", function(){ alert(eurypyleText); });
+gorgo.addEventListener("click", function(){ alert(gorgoText); });
+makeda.addEventListener("click", function(){ alert(makedaText); });
+nitocris.addEventListener("click", function(){ alert(nitocrisText); });
+octavia.addEventListener("click", function(){ alert(octaviaText); });
+phryne.addEventListener("click", function(){ alert(phryneText); });
+roxana.addEventListener("click", function(){ alert(roxanaText); });
+telesilla.addEventListener("click", function(){ alert(telesillaText); });
+theano.addEventListener("click", function(){ alert(theanoText); });
