@@ -92,7 +92,7 @@ praxitelesText ="PRAXITELES \nVid spelets slut är Praxiteles värd 2 VP för va
 ptolemyText ="PTOLEMY \nPtolemy innebär en extra vetenskapssymbol vilken finns angiver på kortet. Denna symbol läggs till de som återfinns på vetenskapliga byggnaderna (gröna kort) i spelarens stad.";
 pythagorasText ="PYTHAGORAS \nPythagoras innebär en extra vetenskapssymbol vilken finns angiver på kortet. Denna symbol läggs till de som återfinns på vetenskapliga byggnaderna (gröna kort) i spelarens stad.";
 ramsesText ="RAMSES \nNär Ramses rekryteras kan spelaren bygga alla sina Skrån gratis, utan att behöva betala några resurskostnader.";
-salomoText ="SALOMO \nSå fort Salomo rekryteras kan spelaren välja ett tidsålderskort från slänghögen och spela ut det gratis.";
+salomoText ="SALOMON \nSå fort Salomon rekryteras kan spelaren välja ett tidsålderskort från slänghögen och spela ut det gratis.";
 sapphoText ="SAPPHO \nVid spelets slut är Sappho värd 2 VP.";
 semiramisText ="SEMIRAMIS \nFrom the moment when she enters play, each Defeat Conflict token counts as a Shield symbol for all future conflict phases.(Place your Defeat tokens on the Semiramis card to make it clearer).";
 tomyrisText ="TOMYRIS \nNär Tomyris rekryteras får spelaren, under konfliktutredningen, ge de Förlustmarkörer han eller hon tilldelas till den segrande grannen. Notera: Tomyris har ingen effect om spelarens stad går segrande ur en konflikt eller när det gäller konflikter som skett innan Tomyris rekryterades.";
@@ -101,21 +101,21 @@ vitruviusText ="VITRUVIUS \nNär har rekryteras ger Vitruvius 2 mynt för varje 
 xenophonText ="XENOPHON \nNär han rekryteras ger Xenophon 2 mynt för varje kommersiell byggnad (gula kort) som spelaren bygger. Mynten tas från bankensamtidigt som byggnaden färdigställs.\n\nFörtydligande: Xenophon påverkar inte de kommersiella byggnader som byggts innan han rekryterades.";
 zenobiaText ="ZENOBIA \nVid spelets slut är Zenobia värd 3 VP.";
 
-aganiceText ="AGANICE \nVid spelets slut är Zenobia värd 3 VP.";
-agrippinaText ="AGRIPPINA \nVid spelets slut är Zenobia värd 3 VP.";
-arsinoeText ="ARSINOE \nVid spelets slut är Zenobia värd 3 VP.";
-corneliaText ="CORNELIA \nVid spelets slut är Zenobia värd 3 VP.";
-cyniscaText ="CYNISCA \nVid spelets slut är Zenobia värd 3 VP.";
-enheduannaText ="ENHEDUANNA \nVid spelets slut är Zenobia värd 3 VP.";
-eurypyleText ="EURYPLE \nVid spelets slut är Zenobia värd 3 VP.";
-gorgoText ="GORGO \nVid spelets slut är Zenobia värd 3 VP.";
-makedaText ="MAKEDA \nVid spelets slut är Zenobia värd 3 VP.";
-nitocrisText ="NITOCRIS \nVid spelets slut är Zenobia värd 3 VP.";
-octaviaText ="OCTAVIA \nVid spelets slut är Zenobia värd 3 VP.";
-phryneText ="PHRYNE \nVid spelets slut är Zenobia värd 3 VP.";
-roxanaText ="Roxana \nVid spelets slut är Zenobia värd 3 VP.";
-telesillaText ="TELESILLA \nVid spelets slut är Zenobia värd 3 VP.";
-theanoText ="THEANO \nVid spelets slut är Zenobia värd 3 VP.";
+aganiceText ="AGANICE \nAt the end of the game, Aganice allows the player to change one of their scientific symbols to another scientific symbol of their choice. \n\n Clarification: The choosen symbol can be from a green, black or white card, or from a Wonder.";
+agrippinaText ="AGRIPPINA \nAt the end of the game, Agrippina is worth 7 VP if she is the player's only face-up Leader.";
+arsinoeText ="ARSINOE \nWhen she enters play, Arsinoe immediately grants 4 coins and causes each other player to lose a number of coins corresponding to the current Age.";
+corneliaText ="CORNELIA \nAt the end of the game, Cornelia are worth 5 VP if the player has more yellow cards in their city than each of the two neighboring cities (counted separately).";
+cyniscaText ="CYNISCA \nAt the end of the game, Cynisca is worth 6 VP if the player has no Military Defeat tokens.";
+enheduannaText ="ENHEDUANNA \nAt the end of the game, Enheduanna grants an additional scientific symbol matching whichever symbol the player has the most of.";
+eurypyleText ="EURYPLE \nAt the end of the game, Eurypyle are worth 5 VP if the player has more red cards in their city than each of the two neighboring cities (counted separately).";
+gorgoText ="GORGO \nAt the end of the game, Gorgo is worth VP based on the pairs of identical Militay Victory tokens that the player possesses. For each pair of identical tokens, Gorgo is worth VP equal to the value of one of these tokens.";
+makedaText ="MAKEDA \nAt the end of the game, Makeda is worth 5 VP id the player har more coins in their city's treasury than each od the two neighboring cities (counted separately).";
+nitocrisText ="NITOCRIS \nWhen she enters play, Nitocris immediately grants a Military Victory token corresponding to the current Age.";
+octaviaText ="OCTAVIA \nOnce in play, each time the player builds a Wonder stage, Octavia grants them 2 coins and causes each other player to lose 1 coin.";
+phryneText ="PHRYNE \nAt the end of the game, Phryne are worth 5 VP if the player has more blue cards in their city than each of the two neighboring cities (counted separately).";
+roxanaText ="Roxana \nOnce in play, Roxana grants 2 coins each time one of the two neighboring cities builds a Wonder stage.";
+telesillaText ="TELESILLA \nWhen Telesilla enters play, the player discards all of their Military Defeat tokens. Each other player discards one Military Victory token of their choice. \n\nCLarification: If Telesilla enters play on the same turn as a card granting a Military Victory token, take the token befor discarding one.";
+theanoText ="THEANO \nAt the end of the game, Theano are worth 5 VP if the player has more green cards in their city than each of the two neighboring cities (counted separately).";
 
 
 amytis.addEventListener("click", function(){ alert(amytisText); });
