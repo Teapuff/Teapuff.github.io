@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Writable Table with Column Points Calculation</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        input[type="number"] {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 5px;
+            border: none;
+        }
+        .total {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h2>Writable Table with Column Points Calculation</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Column 1</th>
+                <th>Column 2</th>
+                <th>Total Points</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Röda Kort</td>
+                <td><input type="number" name="cell2" placeholder="Enter number" oninput="calculateColumnTotal()"></td>
+                <td rowspan="9" class="total" id="totalColumn">0</td>
+            </tr>
+            <tr>
+                <td>Mynt</td>
+                <td><input type="number" name="cell5" placeholder="Enter number" oninput="calculateColumnTotal()"></td>
+            </tr>
+            <tr>
+                <td>Underverksnivå</td>
+                <td><input type="number" name="cell8" placeholder="Enter number" oninput="calculateColumnTotal()"></td>
+            </tr>
+            <tr>
+                <td>Blått Kort</td>
+                <td><input type="number" name="cell8" placeholder="Enter number" oninput="calculateColumnTotal()"></td>
+            </tr>
+            <tr>
+                <td>Gult Kort</td>
+                <td><input type="number" name="cell8" placeholder="Enter number" oninput="calculateColumnTotal()"></td>
+            </tr>
+            <tr>
+                <td>Lila Kort</td>
+                <td><input type="number" name="cell8" placeholder="Enter number" oninput="calculateColumnTotal()"></td>
+            </tr>
+            <tr>
+                <td>Gröna Kort</td>
+                <td><input type="number" name="cell8" placeholder="Enter number" oninput="calculateColumnTotal()"></td>
+            </tr>
+            <tr>
+                <td>Röda Kort</td>
+                <td><input type="number" name="cell8" placeholder="Enter number" oninput="calculateColumnTotal()"></td>
+            </tr>
+            <tr>
+                <td>Svarta Kort</td>
+                <td><input type="number" name="cell8" placeholder="Enter number" oninput="calculateColumnTotal()"></td>
+            </tr>
+        </tbody>
+    </table>
+    <script>
+        function calculateColumnTotal() {
+            const rows = document.querySelectorAll('tbody tr');
+            let total = 0;
+            rows.forEach(row => {
+                const input = row.querySelector('td:nth-child(2) input[type="number"]'); // Select the input in the third column
+                total += Number(input.value) || 0; // Use 0 if the input is empty or invalid
+            });
+            document.getElementById('totalColumn').textContent = total;
+        }
+    </script>
+</body>
+</html>
+
+
+    <a href="7Wonders.html"><h4>Tillbaka</h4></a>
+    <a href="test.html"><h4>Test</h4></a>
