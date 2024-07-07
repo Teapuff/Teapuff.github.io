@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Writable Table with Column Points Calculation</title>
+    <title>Writable Table with Points Calculation</title>
     <style>
         table {
             width: 100%;
@@ -29,49 +29,60 @@
     </style>
 </head>
 <body>
-    <h2>Writable Table with Column Points Calculation</h2>
+    <h2>Writable Table with Points Calculation</h2>
     <table>
         <thead>
             <tr>
                 <th>Column 1</th>
                 <th>Column 2</th>
                 <th>Column 3</th>
-                <th>Total Points (Column 3)</th>
+                <th>Total Points (Excluding Row 2)</th>
             </tr>
         </thead>
         <tbody>
             <tr>
-                <td><input type="number" name="cell1" placeholder="Enter number" oninput="calculateColumnTotal()"></td>
-                <td><input type="number" name="cell2" placeholder="Enter number" oninput="calculateColumnTotal()"></td>
-                <td><input type="number" name="cell3" placeholder="Enter number" oninput="calculateColumnTotal()"></td>
-                <td rowspan="3" class="total" id="totalColumn">0</td>
+                <td><input type="number" name="cell1" placeholder="Enter number" oninput="calculateTotal()"></td>
+                <td><input type="number" name="cell2" placeholder="Enter number" oninput="calculateTotal()"></td>
+                <td><input type="number" name="cell3" placeholder="Enter number" oninput="calculateTotal()"></td>
             </tr>
             <tr>
-                <td><input type="number" name="cell4" placeholder="Enter number" oninput="calculateColumnTotal()"></td>
-                <td><input type="number" name="cell5" placeholder="Enter number" oninput="calculateColumnTotal()"></td>
-                <td><input type="number" name="cell6" placeholder="Enter number" oninput="calculateColumnTotal()"></td>
+                <td><input type="number" name="cell4" placeholder="Enter number" oninput="calculateTotal()"></td>
+                <td><input type="number" name="cell5" placeholder="Enter number" oninput="calculateTotal()"></td>
+                <td><input type="number" name="cell6" placeholder="Enter number" oninput="calculateTotal()"></td>
             </tr>
             <tr>
-                <td><input type="number" name="cell7" placeholder="Enter number" oninput="calculateColumnTotal()"></td>
-                <td><input type="number" name="cell8" placeholder="Enter number" oninput="calculateColumnTotal()"></td>
-                <td><input type="number" name="cell9" placeholder="Enter number" oninput="calculateColumnTotal()"></td>
+                <td><input type="number" name="cell7" placeholder="Enter number" oninput="calculateTotal()"></td>
+                <td><input type="number" name="cell8" placeholder="Enter number" oninput="calculateTotal()"></td>
+                <td><input type="number" name="cell9" placeholder="Enter number" oninput="calculateTotal()"></td>
             </tr>
-            <!-- Add more rows as needed -->
         </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="3" class="total">Total Points:</td>
+                <td class="total" id="totalPoints">0</td>
+            </tr>
+        </tfoot>
     </table>
 
-    <a href="test.html">Tillbaka</a>
+    <a href="7Wonders-Points.html">Tillbaka</a>
+
     <script>
-        function calculateColumnTotal() {
+        function calculateTotal() {
             const rows = document.querySelectorAll('tbody tr');
             let total = 0;
-            rows.forEach(row => {
-                const input = row.querySelector('td:nth-child(2) input[type="number"]'); // Select the input in the third column
-                total += Number(input.value) || 0; // Use 0 if the input is empty or invalid
+            rows.forEach((row, rowIndex) => {
+                if (rowIndex !== 1) { // Exclude the second row (index 1)
+                    const inputs = row.querySelectorAll('input[type="number"]');
+                    inputs.forEach(input => {
+                        total += Number(input.value) || 0; // Use 0 if the input is empty or invalid
+                    });
+                }
             });
-            document.getElementById('totalColumn').textContent = total;
+            document.getElementById('totalPoints').textContent = total;
         }
     </script>
-   
 </body>
 </html>
+
+
+
