@@ -83,7 +83,6 @@
                     <div><input type="number" name="kugghjul" placeholder="Antalet kugghjul" oninput="calculateTotal()"></div>
                     <div><input type="number" name="stenTavlor" placeholder="Antalet stentavlor" oninput="calculateTotal()"></div>
                     <div><input type="number" name="passare" placeholder="Antalet passare" oninput="calculateTotal()"></div>
-                    <!-- <div><input type="number" name="passare" placeholder="Antalet passare" oninput="calculateTotal()"></div> -->
                 </td>
             </tr>
             <tr>
@@ -114,14 +113,14 @@
             const multiGreen = greenSet.querySelectorAll('input[type="number"]');
             let calcGreen = 0;
             multiGreen.forEach(input => {
-                calcGreen = calcGreen + ((input.value) * 6) || 0;
+                calcGreen = calcGreen + ((input.value) * 7) || 0;
             })
 
             // Adding green set
             total += calcGreen;
 
             // Calculate total for all other inputs
-            const otherInputs = document.querySelectorAll('tbody input[type="number"]:not(.multi-input input)');
+            const otherInputs = document.querySelectorAll('tbody input[type="number"]:not(.multi-input input):not(.greenSet input)');
             otherInputs.forEach(input => {
                 total += Number(input.value) || 0;
             });
