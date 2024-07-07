@@ -83,8 +83,14 @@
                     <div><input type="number" name="kugghjul" placeholder="Antalet kugghjul" oninput="calculateTotal()"></div>
                     <div><input type="number" name="stenTavlor" placeholder="Antalet stentavlor" oninput="calculateTotal()"></div>
                     <div><input type="number" name="passare" placeholder="Antalet passare" oninput="calculateTotal()"></div>
+                    <!-- <div><input type="number" name="passare" placeholder="Antalet passare" oninput="calculateTotal()"></div> -->
                 </td>
-                
+            </tr>
+            <tr>
+                <td>Set av Symboler</td>
+                <td class="greenSet">
+                    <input type="number" name="sameGreen" placeholder="Antal Set av Symboler" id="point" oninput="calculateTotal()">
+                </td>
             </tr>
         </tbody>
     </table>
@@ -100,10 +106,19 @@
                 multiInputTotal = multiInputTotal + ((input.value) ** 2) || 0;
             });
 
-            //Seeing if you have one of each green card
-
             // Add the multi-input total to the overall total
             total += multiInputTotal;
+
+            //Calculate Set of green card
+            const greenSet = document.querySelector('.greenSet');
+            const multiGreen = greenSet.querySelectorAll('input[type="number"]');
+            let calcGreen = 0;
+            multiGreen.forEach(input => {
+                calcGreen = calcGreen + ((input.value) * 6) || 0;
+            })
+
+            // Adding green set
+            total += calcGreen;
 
             // Calculate total for all other inputs
             const otherInputs = document.querySelectorAll('tbody input[type="number"]:not(.multi-input input)');
