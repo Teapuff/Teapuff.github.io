@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Writable Table with Points Calculation</title>
+    <title>Calculating Points</title>
     <style>
         table {
             width: 100%;
@@ -18,71 +18,109 @@
             background-color: #f2f2f2;
         }
         input[type="number"] {
-            width: 100%;
+            width: 100%; /* Full width for stacked inputs */
             box-sizing: border-box;
             padding: 5px;
             border: none;
+            margin-bottom: 5px; /* Space between inputs */
         }
         .total {
             font-weight: bold;
         }
+        .multi-input {
+            display: flex;
+            flex-direction: column;
+        }
     </style>
 </head>
 <body>
-    <h2>Writable Table with Points Calculation</h2>
+    <h2>Beräkna VP</h2>
     <table>
         <thead>
             <tr>
-                <th>Column 1</th>
-                <th>Column 2</th>
-                <th>Column 3</th>
-                <th>Total Points (Excluding Row 2)</th>
+                <th>Kort</th>
+                <th>Poäng</th>
+                <th>Totala Poäng</th>
             </tr>
         </thead>
         <tbody>
             <tr>
-                <td><input type="number" name="cell1" placeholder="Enter number" oninput="calculateTotal()"></td>
-                <td><input type="number" name="cell2" placeholder="Enter number" oninput="calculateTotal()"></td>
-                <td><input type="number" name="cell3" placeholder="Enter number" oninput="calculateTotal()"></td>
+                <td>Röda Kort</td>
+                <td><input type="number" name="Red" placeholder="Röda Poäng" oninput="calculateTotal()"></td>
+                <td rowspan="9" class="total" id="totalPoints">0</td>
             </tr>
             <tr>
-                <td><input type="number" name="cell4" placeholder="Enter number" oninput="calculateTotal()"></td>
-                <td><input type="number" name="cell5" placeholder="Enter number" oninput="calculateTotal()"></td>
-                <td><input type="number" name="cell6" placeholder="Enter number" oninput="calculateTotal()"></td>
+                <td>Mynt</td>
+                <td><input type="number" name="coin" placeholder="Mynt Poäng" oninput="calculateTotal()"></td>
             </tr>
             <tr>
-                <td><input type="number" name="cell7" placeholder="Enter number" oninput="calculateTotal()"></td>
-                <td><input type="number" name="cell8" placeholder="Enter number" oninput="calculateTotal()"></td>
-                <td><input type="number" name="cell9" placeholder="Enter number" oninput="calculateTotal()"></td>
+                <td>Underverksnivå</td>
+                <td><input type="number" name="wonder" placeholder="Underverks Poäng" oninput="calculateTotal()"></td>
+            </tr>
+            <tr>
+                <td>Blått Kort</td>
+                <td><input type="number" name="blue" placeholder="Blå Poäng" id="point" oninput="calculateTotal()"></td>
+            </tr>
+            <tr>
+                <td>Gult Kort</td>
+                <td><input type="number" name="yellow" placeholder="Gula Poäng" id="point" oninput="calculateTotal()"></td>
+            </tr>
+            <tr>
+                <td>Lila Kort</td>
+                <td><input type="number" name="purple" placeholder="Lila Poäng" id="point" oninput="calculateTotal()"></td>
+            </tr>
+            <tr>
+                <td>Ledare</td>
+                <td><input type="number" name="leader" placeholder="Ledare Poäng" id="point" oninput="calculateTotal()"></td>
+            </tr>
+            <tr>
+                <td>Svarta Kort</td>
+                <td><input type="number" name="black" placeholder="Svarta Poäng" id="point" oninput="calculateTotal()"></td>
+            </tr>
+            <tr>
+                <td>Gröna Kort</td>
+                <td class="multi-input">
+                    <div><input type="number" name="kugghjul" placeholder="Antalet kugghjul" oninput="calculateTotal()"></div>
+                    <div><input type="number" name="stenTavlor" placeholder="Antalet stentavlor" oninput="calculateTotal()"></div>
+                    <div><input type="number" name="passare" placeholder="Antalet passare" oninput="calculateTotal()"></div>
+                </td>
+                
             </tr>
         </tbody>
-        <tfoot>
-            <tr>
-                <td colspan="3" class="total">Total Points:</td>
-                <td class="total" id="totalPoints">0</td>
-            </tr>
-        </tfoot>
     </table>
-
-    <a href="7Wonders-Points.html">Tillbaka</a>
-
     <script>
         function calculateTotal() {
-            const rows = document.querySelectorAll('tbody tr');
             let total = 0;
-            rows.forEach((row, rowIndex) => {
-                if (rowIndex !== 1) { // Exclude the second row (index 1)
-                    const inputs = row.querySelectorAll('input[type="number"]');
-                    inputs.forEach(input => {
-                        total += Number(input.value) || 0; // Use 0 if the input is empty or invalid
-                    });
-                }
+
+            // Handle the special case for the multi-input cell
+            const multiInputCell = document.querySelector('.multi-input');
+            const multiInputs = multiInputCell.querySelectorAll('input[type="number"]');
+            let multiInputTotal = 0;
+            multiInputs.forEach(input => {
+                multiInputTotal = multiInputTotal + ((input.value) ** 2) || 0;
             });
+
+            //Seeing if you have one of each green card
+
+            // Add the multi-input total to the overall total
+            total += multiInputTotal;
+
+            // Calculate total for all other inputs
+            const otherInputs = document.querySelectorAll('tbody input[type="number"]:not(.multi-input input)');
+            otherInputs.forEach(input => {
+                total += Number(input.value) || 0;
+            });
+
+            // Update the total points display
             document.getElementById('totalPoints').textContent = total;
         }
     </script>
 </body>
 </html>
+
+
+
+<a href="7Wonders-Points.html">Tillbaka</a>
 
 
 

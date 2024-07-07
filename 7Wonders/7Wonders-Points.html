@@ -18,13 +18,18 @@
             background-color: #f2f2f2;
         }
         input[type="number"] {
-            width: 100%;
+            width: 100%; /* Full width for stacked inputs */
             box-sizing: border-box;
             padding: 5px;
             border: none;
+            margin-bottom: 5px; /* Space between inputs */
         }
         .total {
             font-weight: bold;
+        }
+        .multi-input {
+            display: flex;
+            flex-direction: column;
         }
     </style>
 </head>
@@ -41,64 +46,79 @@
         <tbody>
             <tr>
                 <td>Röda Kort</td>
-                <td><input type="number" name="Red" placeholder="Röda Poäng" id="point" oninput="calculateColumnTotal()"></td>
-                <td rowspan="9" class="total" id="totalColumn">0</td>
+                <td><input type="number" name="Red" placeholder="Röda Poäng" oninput="calculateTotal()"></td>
+                <td rowspan="9" class="total" id="totalPoints">0</td>
             </tr>
             <tr>
                 <td>Mynt</td>
-                <td><input type="number" name="coin" placeholder="Mynt Poäng" id="point" oninput="calculateColumnTotal()"></td>
+                <td><input type="number" name="coin" placeholder="Mynt Poäng" oninput="calculateTotal()"></td>
             </tr>
             <tr>
                 <td>Underverksnivå</td>
-                <td><input type="number" name="wonder" placeholder="Underverks Poäng" id="point" oninput="calculateColumnTotal()"></td>
+                <td><input type="number" name="wonder" placeholder="Underverks Poäng" oninput="calculateTotal()"></td>
             </tr>
             <tr>
                 <td>Blått Kort</td>
-                <td><input type="number" name="blue" placeholder="Blå Poäng" id="point" oninput="calculateColumnTotal()"></td>
+                <td><input type="number" name="blue" placeholder="Blå Poäng" id="point" oninput="calculateTotal()"></td>
             </tr>
             <tr>
                 <td>Gult Kort</td>
-                <td><input type="number" name="yellow" placeholder="Gula Poäng" id="point" oninput="calculateColumnTotal()"></td>
+                <td><input type="number" name="yellow" placeholder="Gula Poäng" id="point" oninput="calculateTotal()"></td>
             </tr>
             <tr>
                 <td>Lila Kort</td>
-                <td><input type="number" name="purple" placeholder="Lila Poäng" id="point" oninput="calculateColumnTotal()"></td>
-            </tr>
-            <tr>
-                <td>Gröna Kort</td>
-                <td><input type="number" name="green" placeholder="Gröna Poäng" oninput="calculateColumnTotal()"></td>
+                <td><input type="number" name="purple" placeholder="Lila Poäng" id="point" oninput="calculateTotal()"></td>
             </tr>
             <tr>
                 <td>Ledare</td>
-                <td><input type="number" name="leader" placeholder="Ledare Poäng" id="point" oninput="calculateColumnTotal()"></td>
+                <td><input type="number" name="leader" placeholder="Ledare Poäng" id="point" oninput="calculateTotal()"></td>
             </tr>
             <tr>
                 <td>Svarta Kort</td>
-                <td><input type="number" name="black" placeholder="Svarta Poäng" id="point" oninput="calculateColumnTotal()"></td>
+                <td><input type="number" name="black" placeholder="Svarta Poäng" id="point" oninput="calculateTotal()"></td>
+            </tr>
+            <tr>
+                <td>Gröna Kort</td>
+                <td class="multi-input">
+                    <div><input type="number" name="kugghjul" placeholder="Antalet kugghjul" oninput="calculateTotal()"></div>
+                    <div><input type="number" name="stenTavlor" placeholder="Antalet stentavlor" oninput="calculateTotal()"></div>
+                    <div><input type="number" name="passare" placeholder="Antalet passare" oninput="calculateTotal()"></div>
+                </td>
+                
             </tr>
         </tbody>
     </table>
     <script>
-        function calculateColumnTotal() {
-            const rows = document.querySelectorAll('tbody tr');
-
+        function calculateTotal() {
             let total = 0;
-            let green = 0;
-            rows.forEach((row, rowIndex) => {
-                if (rowIndex != 6) {
-                    const input = row.querySelector('td:nth-child(2) input[type="number"]');
-                    total += Number(input.value) || 0;
-                }
-    
+
+            // Handle the special case for the multi-input cell
+            const multiInputCell = document.querySelector('.multi-input');
+            const multiInputs = multiInputCell.querySelectorAll('input[type="number"]');
+            let multiInputTotal = 0;
+            multiInputs.forEach(input => {
+                multiInputTotal = multiInputTotal + ((input.value) ** 2) || 0;
             });
-            document.getElementById('totalColumn').textContent = total;
+
+            //Seeing if you have one of each green card
+
+            // Add the multi-input total to the overall total
+            total += multiInputTotal;
+
+            // Calculate total for all other inputs
+            const otherInputs = document.querySelectorAll('tbody input[type="number"]:not(.multi-input input)');
+            otherInputs.forEach(input => {
+                total += Number(input.value) || 0;
+            });
+
+            // Update the total points display
+            document.getElementById('totalPoints').textContent = total;
         }
     </script>
-
-<a href="7Wonders.html"><h4>Tillbaka</h4></a>
-<a href="test.html"><h4>Test</h4></a>
-
 </body>
 </html>
 
 
+
+<a href="7Wonders.html"><h4>Tillbaka</h4></a>
+<a href="test.html"><h4>Test</h4></a>
